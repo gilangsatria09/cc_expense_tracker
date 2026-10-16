@@ -1,5 +1,7 @@
 # CC Expense Tracker
 
+**In short (English):** an offline-first Flutter app that tracks credit-card and pay-later spending. It assigns each purchase to the correct statement month using per-card cut-off dates, splits group orders between friends (optionally reading receipts with Google Gemini), and tracks installments and recurring subscriptions with local reminders. Built with Clean Architecture, BLoC, Drift (SQLite) and get_it, with 229 automated tests. The UI is in Indonesian because the app is built around Indonesian card and pay-later billing.
+
 A personal Flutter app for tracking credit-card (and pay-later) spending, with first-class support for the things that make Indonesian card statements messy: statement cut-off dates, group orders that get split between friends, installments (cicilan) and recurring subscriptions.
 
 It started as a Google Sheets tracker (`CC_Expense_Tracker.xlsx`) and was rebuilt as a mobile app. Everything is stored **locally on the device**. There is no backend and no account. The only network call is the optional AI receipt reader.
@@ -117,7 +119,13 @@ flutter run
 
 `.env` is bundled as a Flutter asset, so it must exist for the app to build. It is git-ignored. Without a Gemini key everything works except AI extraction; manual entry is unaffected.
 
-> **Note:** because `.env` is bundled as an asset, the API key is embedded in the built app. Treat this as a personal-use setup and don't distribute builds containing your key.
+### API key security
+
+`.env` is git-ignored, and no real key has ever been committed (only `.env.example` with an empty value is tracked). However, `.env` is bundled as a Flutter asset, so **the key is embedded in any APK/IPA you build and can be extracted from it**. That is acceptable for a personal build on your own device, but:
+
+- do not distribute builds that contain your key;
+- restrict the key in Google AI Studio / Cloud Console (quota limits, app restrictions);
+- for a public release, move the call behind a small server-side proxy or let each user enter their own key at runtime instead of bundling one.
 
 ## Importing your spreadsheet data
 
@@ -144,6 +152,10 @@ The suite covers the database and migrations (v1 to v4), import/backup round-tri
 ## Data and privacy
 
 All data stays in the app's local SQLite database. The only data that leaves the device is a receipt image sent to the Gemini API when you explicitly use AI extraction.
+
+## License
+
+Released under the [MIT License](LICENSE).
 
 ## Project status
 
