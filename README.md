@@ -8,6 +8,14 @@ It started as a Google Sheets tracker (`CC_Expense_Tracker.xlsx`) and was rebuil
 
 > The UI is in Indonesian. Code identifiers for domain concepts (`Transaksi`, `Akun`, `Cicilan`, ...) are Indonesian too.
 
+## Screenshots
+
+Sample data only (fictional names and amounts).
+
+| Transactions | Installments | Subscriptions | Dashboard |
+| --- | --- | --- | --- |
+| <img src="docs/screenshots/transaksi.png" width="200" alt="Transactions list filtered by billing month and payment status"> | <img src="docs/screenshots/cicilan.png" width="200" alt="Installment progress"> | <img src="docs/screenshots/subscription.png" width="200" alt="Subscriptions with next billing date"> | <img src="docs/screenshots/dashboard.png" width="200" alt="Credit limit and amount due this month"> |
+
 ## Features
 
 ### Transaksi
