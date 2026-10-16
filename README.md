@@ -101,7 +101,7 @@ Each presentation feature has its own `bloc/`, `pages/` and `widgets/`. Business
 ### Setup
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/gilangsatria09/cc_expense_tracker.git
 cd cc_expense_tracker
 flutter pub get
 
